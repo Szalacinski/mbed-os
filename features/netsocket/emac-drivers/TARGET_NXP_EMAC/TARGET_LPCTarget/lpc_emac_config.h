@@ -40,7 +40,9 @@
 
 /** \brief  The PHY address connected the to MII/RMII
  */
-#define LPC_PHYDEF_PHYADDR 1    /**< The PHY address on the PHY device. */
+#ifndef LPC_PHYDEF_PHYADDR          /* Allow this to be defined in the JSON config. */
+#    define LPC_PHYDEF_PHYADDR 1    /**< The PHY address on the PHY device. */
+#endif
 
 /** \brief  Enable autonegotiation mode.
  *          If this is enabled, the PHY will attempt to auto-negotiate the

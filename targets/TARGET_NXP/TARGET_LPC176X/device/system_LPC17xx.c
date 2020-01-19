@@ -303,6 +303,12 @@
 #    define PLL1CFG_Val           0x00000023
 #    define CCLKCFG_Val           0x00000003
 #    define USBCLKCFG_Val         0x00000000
+#elif TARGET_RFID_LPC1766
+#    define PLL0CFG_Val           0x00010018
+#    define PLL1_SETUP            0
+#    define PLL1CFG_Val           0x00000000
+#    define CCLKCFG_Val           0x00000002
+#    define USBCLKCFG_Val         0x00000000
 #else
 #    define PLL0CFG_Val           0x0000000B
 #    define PLL1_SETUP            0
@@ -314,7 +320,11 @@
 #define PCLKSEL0_Val          0x00000000
 #define PCLKSEL1_Val          0x00000000
 #define PCONP_Val             0x042887DE
-#define CLKOUTCFG_Val         0x00000000
+#ifdef TARGET_RFID_LPC1766    /* Create the 50 MHz RMII clock. */
+#    define CLKOUTCFG_Val     0x00000110
+#else
+#    define CLKOUTCFG_Val     0x00000000
+#endif
 
 
 /*--------------------- Flash Accelerator Configuration ----------------------
