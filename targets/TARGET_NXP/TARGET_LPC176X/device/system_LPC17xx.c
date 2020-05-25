@@ -340,7 +340,11 @@
 // </e>
 */
 #define FLASH_SETUP           1
-#define FLASHCFG_Val          0x0000303A
+#ifdef TARGET_RFID_LPC1766
+#    define FLASHCFG_Val          0x0000403A
+#else
+#    define FLASHCFG_Val          0x0000303A
+#endif
 
 /*
 //-------- <<< end of configuration section >>> ------------------------------
